@@ -26,11 +26,11 @@ done
 ## 3. Organize CDS sequences by orthogroups
 # This step is necessary to then be able to obtain codon alignments from protein alignments in step 4.
 cat $SCRIPT_DIR/Genomic_data/Betaproteobacteria/cds/*.ffn > $SCRIPT_DIR/Genomic_data/Betaproteobacteria/cds/all.ffn
-python $SCRIPT_DIR/Utility_scripts/getTranscriptSequencesForEachOG_betaproteobacteria.py
+python $SCRIPT_DIR/Utility_scripts/getTranscriptSequencesForEachOG_Betaproteobacteria.py
 rm $SCRIPT_DIR/Genomic_data/Betaproteobacteria/cds/all.ffn
 
 cat $SCRIPT_DIR/Genomic_data/Sordariomycetes/cds/*.ffn > $SCRIPT_DIR/Genomic_data/Sordariomycetes/cds/all.ffn
-python $SCRIPT_DIR/Utility_scripts/getTranscriptSequencesForEachOG_sordariomycetes.py
+python $SCRIPT_DIR/Utility_scripts/getTranscriptSequencesForEachOG_Sordariomycetes.py
 rm $SCRIPT_DIR/Genomic_data/Sordariomycetes/cds/all.ffn
 
 
