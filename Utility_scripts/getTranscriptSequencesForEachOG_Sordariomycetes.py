@@ -10,7 +10,7 @@ gffFiles={f.split('_')[0]:f for f in os.listdir(scriptDir+'/../Genomic_data/Sord
 t2p={s:{} for s in sorda}
 for f in gffFiles:
     print(f, gffFiles[f])
-    gff=pd.read_csv('gff/'+gffFiles[f],sep='\t',header=None,comment="#")
+    gff=pd.read_csv(scriptDir+'/../Genomic_data/Sordariomycetes/gff/'+gffFiles[f],sep='\t',header=None,comment="#")
     gff=gff[gff[2]=='mRNA'][[8]].reset_index(drop=True)
     for ind in gff.index:
 #        p2t[f][gff.loc[ind,8].split('proteinId=')[1].split(';')[0]]=gff.loc[ind,8].split('transcriptId=')[1]
