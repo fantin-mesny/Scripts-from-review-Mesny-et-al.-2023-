@@ -1,8 +1,10 @@
-
+#!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-## 0. Unzip all files in the repository
+## 0. Unzip all compressed files in the repository
 gunzip $SCRIPT_DIR/Genomic_data/*/*/*.gz
+gunzip $SCRIPT_DIR/Functional_annotations/*/*.gz
+tar -xf $SCRIPT_DIR/Orthology_prediction/*.tar.gz
 
 ## 1. Orthology prediction
 # Main output files from these orthology predictions are provided in folder "Orthology_prediction"
@@ -62,3 +64,10 @@ do
     done;
     grep '## FUBAR inferred ' hyphy/*.hyphy.log > $SCRIPT_DIR/Fubar_outputs/allHyphyLogs_$class.txt
 done
+
+
+## 5. Functional analysis
+# This part of the pipeline is used to generate the data tables provided as Supplementary Material of the review
+# These tables were also used to generate Figure 1
+python $SCRIPT_DIR/Utility_scripts/functionalAnalysis_Betaproteobacteria.py
+python $SCRIPT_DIR/Utility_scripts/functionalAnalysis_Sordariomycetes.py
